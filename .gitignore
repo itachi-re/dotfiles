@@ -1,0 +1,33 @@
+# ~/.dotfiles/.gitignore
+
+# History files from various shells
+*history
+.zsh_history
+.bash_history
+
+# Vim specific files
+*.swp
+*.swo
+.viminfo
+
+# Cache directories and files
+.cache/
+*.cache
+
+# Zsh specific
+.zcompdump*
+
+# YaST logs from openSUSE
+.y2log*
+
+# General development tool clutter
+.gradle/
+.java/
+.javacpp/
+.skiko/
+.dotnet/
+.subversion/
+
+# OS-specific files (good practice to include)
+.DS_Store
+Thumbs.db
