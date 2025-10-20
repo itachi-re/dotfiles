@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<!DOCTYPE UserSettings SYSTEM "/un/defined">
+<UserSettings xmlns="http://www.suse.com/1.0/yast2ns" xmlns:config="http://www.suse.com/1.0/configns">
+  <OneClickInstallUI t="map">
+    <CanRead t="boolean">false</CanRead>
+  </OneClickInstallUI>
+</UserSettings>

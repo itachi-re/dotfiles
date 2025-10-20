@@ -1,0 +1,12 @@
+# HSTS 1.0 Known Hosts database for GNU Wget.
+# Edit at your own risk.
+# <hostname>	<port>	<incl. subdomains>	<created>	<max-age>
+api.github.com	0	1	1756664315	31536000
+raw.githubusercontent.com	0	0	1758709475	31536000
+mirror.ghproxy.com	0	0	1751647731	63072000
+kde.org	0	0	1760560614	15768000
+ghproxy.link	0	0	1751647732	63072000
+aka.ms	0	1	1756661266	31536000
+media.codeweavers.com	0	0	1756115173	31536000
+github.com	0	1	1756664316	31536000
+sourceforge.net	0	1	1755190254	31536000

@@ -46,3 +46,10 @@ export PATH=$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$PATH
 # Load pywal colors
 # ~/.bashrc or ~/.zshrc
 [ -f "$HOME/.cache/wal/sequences" ] && cat "$HOME/.cache/wal/sequences"
+
+
+export PATH="$HOME/Scripts:$PATH"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

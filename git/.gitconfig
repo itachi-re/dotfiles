@@ -1,3 +1,5 @@
 [user]
 	name = itachi_re
 	email = xanbenson99@gmail.com
+[credential]
+	helper = /usr/lib/git-core/git-credential-libsecret

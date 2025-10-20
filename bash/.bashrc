@@ -25,3 +25,5 @@ export PATH="$HOME/Apps:$PATH"
 # Run Neofetch on startup
 clear
 neofetch
+
+export PATH="$HOME/Scripts:$PATH"
