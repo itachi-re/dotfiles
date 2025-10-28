@@ -491,7 +491,7 @@ You are free to use, modify, and distribute this configuration with attribution.
 
 *Linux enthusiast • Open-source advocate • Gamer*
 
-[![GitHub](https://img.shields.io/badge/GitHub-itachi__re-181717?logo=github)](https://github.com/itachi_re)
+[![GitHub](https://img.shields.io/badge/GitHub-itachi-re-181717?logo=github)](https://github.com/itachi_re)
 [![Email](https://img.shields.io/badge/Email-itachi_re%40protonmail.com-D14836?logo=gmail)](mailto:itachi_re@protonmail.com)
 [![Last.fm](https://img.shields.io/badge/Last.fm-itachi__re-D51007?logo=last.fm)](https://www.last.fm/user/itachi_re)
 
