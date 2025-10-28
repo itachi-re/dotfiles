@@ -455,7 +455,7 @@ Contributions, issues, and feature requests are welcome! Feel free to:
 ### Terminal with Starship Prompt
 ![Terminal](https://via.placeholder.com/800x400/1a1b26/ffffff?text=Terminal+Screenshot)
 
-### Vim Setup
+### nvim Setup
 ![Vim](https://via.placeholder.com/800x400/1a1b26/ffffff?text=Vim+Screenshot)
 
 ### Desktop Environment
@@ -492,7 +492,7 @@ You are free to use, modify, and distribute this configuration with attribution.
 *Linux enthusiast • Open-source advocate • Gamer*
 
 [![GitHub](https://img.shields.io/badge/GitHub-itachi__re-181717?logo=github)](https://github.com/itachi_re)
-[![Email](https://img.shields.io/badge/Email-xanbenson99%40gmail.com-D14836?logo=gmail)](mailto:itachi_re@protonmail.com)
+[![Email](https://img.shields.io/badge/Email-itachi_re%40protonmail.com-D14836?logo=gmail)](mailto:itachi_re@protonmail.com)
 [![Last.fm](https://img.shields.io/badge/Last.fm-itachi__re-D51007?logo=last.fm)](https://www.last.fm/user/itachi_re)
 
 </div>
