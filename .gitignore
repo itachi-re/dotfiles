@@ -31,3 +31,7 @@
 # OS-specific files (good practice to include)
 .DS_Store
 Thumbs.db
+
+# ignore local credentials
+misc/.lastfm_scrobbler
+
