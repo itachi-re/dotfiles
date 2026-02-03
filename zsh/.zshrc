@@ -53,3 +53,9 @@ export PATH="$HOME/Scripts:$PATH"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Allow comments in interactive Zsh (like Bash)
+setopt interactive_comments
+
+# opencode
+export PATH=/home/itachi/.opencode/bin:$PATH

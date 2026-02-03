@@ -1,5 +1,18 @@
 [user]
-	name = itachi_re
+	name = itachi-re
 	email = xanbenson99@gmail.com
 [credential]
 	helper = /usr/lib/git-core/git-credential-libsecret
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[gui]
+	recentrepo = /data/itachi/Projects/github/butex-notes
