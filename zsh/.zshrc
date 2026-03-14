@@ -59,3 +59,5 @@ setopt interactive_comments
 
 # opencode
 export PATH=/home/itachi/.opencode/bin:$PATH
+alias clean-cache='rm -rf ~/.cache/*'
+alias clean-cache='du -sh ~/.cache && rm -rf ~/.cache/* && echo Cache cleaned'

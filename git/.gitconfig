@@ -16,3 +16,5 @@
 	helper = !/usr/bin/gh auth git-credential
 [gui]
 	recentrepo = /data/itachi/Projects/github/butex-notes
+[alias]
+	commit-each = "!f() { for file in \"$@\"; do git add \"$file\"; git commit -m \"Add $(basename \"$file\")\"; done; }; f"
