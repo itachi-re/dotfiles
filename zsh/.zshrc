@@ -40,7 +40,45 @@ source ~/.zsh_plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 zstyle ':completion:*' list-colors ''
 autoload -Uz compinit
 compinit
-# source /usr/share/z/z.sh
+# source /usr/share/z/z.sh# ── Navigation ─────────────────────────────────────────────
+alias home='cd ~'
+alias dotfiles='cd ~/.dotfiles'
+alias conf='cd ~/.config'
+
+# ── Editor ─────────────────────────────────────────────────
+alias v='nvim'
+alias vi='nvim'
+alias vim='nvim'
+
+# ── Git ────────────────────────────────────────────────────
+alias g='git'
+alias gs='git status'
+alias ga='git add'
+alias gaa='git add .'
+alias gc='git commit -m'
+alias gp='git push'
+alias gl='git log --oneline --graph --decorate'
+alias gd='git diff'
+alias gco='git checkout'
+alias gcb='git checkout -b'
+
+# ── System ─────────────────────────────────────────────────
+alias df='df -h'
+alias du='du -sh'
+alias free='free -h'
+alias ports='ss -tulanp'
+alias myip='curl ifconfig.me'
+
+# ── Safety nets ────────────────────────────────────────────
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+
+# ── Misc ───────────────────────────────────────────────────
+alias reload='source ~/.zshrc'
+alias path='echo $PATH | tr ":" "\n"'
+alias clr='clear'
+alias h='history | tail -50'
 export ANDROID_HOME=/data/itachi/android-sdk
 export PATH=$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$PATH
 # Load pywal colors
@@ -59,5 +97,5 @@ setopt interactive_comments
 
 # opencode
 export PATH=/home/itachi/.opencode/bin:$PATH
-alias clean-cache='rm -rf ~/.cache/*'
 alias clean-cache='du -sh ~/.cache && rm -rf ~/.cache/* && echo Cache cleaned'
+
