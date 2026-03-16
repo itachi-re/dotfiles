@@ -100,3 +100,5 @@ setopt interactive_comments
 export PATH=/home/itachi/.opencode/bin:$PATH
 alias clean-cache='du -sh ~/.cache && rm -rf ~/.cache/* && echo Cache cleaned'
 
+# vscode
+alias up-code='cd ~/AppImages/vscode/ && ./update-vscode.sh'
