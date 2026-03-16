@@ -79,6 +79,7 @@ alias reload='source ~/.zshrc'
 alias path='echo $PATH | tr ":" "\n"'
 alias clr='clear'
 alias h='history | tail -50'
+alias swc='wal -i /home/itachi/Pictures/Wallpapers/rei.jpg'
 export ANDROID_HOME=/data/itachi/android-sdk
 export PATH=$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$PATH
 # Load pywal colors
