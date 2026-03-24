@@ -102,3 +102,11 @@ alias clean-cache='du -sh ~/.cache && rm -rf ~/.cache/* && echo Cache cleaned'
 
 # vscode
 alias up-code='cd ~/AppImages/vscode/ && ./update-vscode.sh'
+
+# pnpm
+export PNPM_HOME="/home/itachi/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
