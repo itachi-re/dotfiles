@@ -1,0 +1,93 @@
+// ~/.config/fastfetch/config.jsonc
+// Catppuccin Mocha themed config for openSUSE
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+
+  // ─── Logo Configuration ─────────────────────────────────────────────────────
+  "logo": {
+    "type": "file",
+    "source": "/home/itachi/.config/fastfetch/art.txt",
+  },
+  "logo-color-1": "#a6e3a1", // Catppuccin Green
+  "logo-color-2": "#cdd6f4", // Catppuccin Text
+
+  // ─── Display Configuration ───────────────────────────────────────────────────
+  "display": {
+    "separator": " ❯ ",
+    "color": {
+      "keys": "#89b4fa" // Catppuccin Blue
+    }
+  },
+
+  // ─── Modules Configuration ───────────────────────────────────────────────────
+  "modules": [
+    // ── Header
+    {
+      "type": "title",
+      "keyColor": "#cba6f7", // Mauve
+      "color": {
+        "user": "#f5c2e7", // Pink
+        "at": "#9399b2",  // Overlay2
+        "host": "#89b4fa" // Blue
+      },
+      "format": "{user}@{host}"
+    },
+    {
+      "type": "separator",
+      "string": "─",
+      "color": "#6c7086" // Overlay0
+    },
+
+    // ── System Information
+    { "type": "os", "key": "󰀘 OS", "keyColor": "#a6e3a1" }, // Green
+    { "type": "kernel", "key": "󰒋 Kernel", "keyColor": "#a6e3a1" },
+    { "type": "uptime", "key": "󰅐 Uptime", "keyColor": "#f9e2af" }, // Yellow
+    {
+      "type": "command",
+      "key": "󰎔 OS Age",
+      "keyColor": "#f9e2af",
+      "text": "echo $(( ($(date +%s) - $(stat -c %W /)) / 86400 )) days"
+    },
+
+    // ── Software Environment
+    { "type": "packages", "key": "󰏗 Packages", "keyColor": "#89b4fa" }, // Blue
+    { "type": "shell", "key": " Shell", "keyColor": "#89b4fa" },
+    { "type": "terminal", "key": "󰆍 Terminal", "keyColor": "#89b4fa" },
+    { "type": "terminalfont", "key": " Font", "keyColor": "#89b4fa" },
+
+    // ── Desktop Environment
+    { "type": "de", "key": "󰀹 DE", "keyColor": "#cba6f7" }, // Mauve
+    { "type": "wm", "key": "󰍹 WM", "keyColor": "#cba6f7" },
+    { "type": "wmtheme", "key": "󰉼 WM Theme", "keyColor": "#f5c2e7" }, // Pink
+    { "type": "theme", "key": "󰉼 GTK Theme", "keyColor": "#f5c2e7" },
+    { "type": "icons", "key": "󰀻 Icons", "keyColor": "#f5c2e7" },
+    { "type": "cursor", "key": "󰳿 Cursor", "keyColor": "#f5c2e7" },
+    { "type": "font", "key": " Font", "keyColor": "#f5c2e7" },
+
+    // ── Hardware
+    { "type": "cpu", "key": "󰍛 CPU", "keyColor": "#94e2d5" }, // Teal
+    { "type": "gpu", "key": "󰾲 GPU", "keyColor": "#94e2d5" },
+    { "type": "memory", "key": "󰍛 Memory", "keyColor": "#94e2d5" },
+    { "type": "swap", "key": "󰾴 Swap", "keyColor": "#94e2d5" },
+    {
+      "type": "disk",
+      "key": "󰋊 Disk (/)",
+      "keyColor": "#94e2d5",
+      "folders": "/"
+    },
+
+    // ── Footer
+    {
+      "type": "separator",
+      "string": "─",
+      "color": "#6c7086"
+    },
+    {
+      "type": "colors",
+      "symbol": "circle",
+      "padding": {
+        "left": 1
+      }
+    }
+  ]
+}
