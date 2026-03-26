@@ -1,0 +1,16 @@
+active 0
+playing -1
+playlist 0
+position -1
+resume-state 1
+resume-time 0
+playlist 1
+position -1
+shuffle 7,13,0,1,2,3,4,5,6,8,9,10,12,14,15,11
+shuffle 16,17
+resume-state 1
+resume-time 0
+playlist 2
+position -1
+resume-state 1
+resume-time 0
