@@ -5,11 +5,11 @@ position -1
 resume-state 1
 resume-time 0
 playlist 1
-position 17
-shuffle 7,13,0,1,2,3,4,5,6,8,9,10,12,14,15,11
-shuffle 16,17
+position 5
+shuffle 7,13,6,8,9,10,12,14,15,11,16,17,0,1,2,3
+shuffle 4,5
 resume-state 2
-resume-time 1701
+resume-time 790
 playlist 2
 position -1
 resume-state 1
