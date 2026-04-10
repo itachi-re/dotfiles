@@ -1,5 +1,5 @@
-active 1
-playing 1
+active 2
+playing 2
 playlist 0
 position -1
 resume-state 1
@@ -8,9 +8,14 @@ playlist 1
 position 5
 shuffle 7,13,6,8,9,10,12,14,15,11,16,17,0,1,2,3
 shuffle 4,5
-resume-state 2
+resume-state 1
 resume-time 790
 playlist 2
+position 0
+shuffle 0
+resume-state 1
+resume-time 7082
+playlist 3
 position -1
 resume-state 1
 resume-time 0
