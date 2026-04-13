@@ -2,47 +2,36 @@
 set -euo pipefail
 
 DOTFILES="$HOME/.dotfiles"
+
 STOW_PACKAGES=(
-  alacritty
-  audacious
-  bash
-  cava
-  easyeffects
-  emacs
-  fastfetch
-  fontconfig
-  ghostty
-  git
-  gtk
-  haruna
-  kde
-  misc
-  neofetch
-  nvim
-  panel-colorizer
-  profile
-  tmux
-  vim
-  wal
-  xsettingsd
-  zsh
+  alacritty audacious bash cava easyeffects emacs fastfetch
+  fontconfig ghostty git gtk haruna kde misc neofetch nvim
+  panel-colorizer profile tmux vim wal xsettingsd zsh
 )
 
 echo "→ Installing dotfiles from $DOTFILES"
 
-# Check dependencies
-command -v stow >/dev/null 2>&1 || { echo "ERROR: stow not found. Install with: sudo zypper install stow"; exit 1; }
+# Ensure stow exists
+if ! command -v stow >/dev/null 2>&1; then
+  echo "Installing stow..."
+  sudo zypper install -y stow
+fi
 
 cd "$DOTFILES"
+
+# Allow selective install
+if [ "$#" -gt 0 ]; then
+  STOW_PACKAGES=("$@")
+fi
 
 for pkg in "${STOW_PACKAGES[@]}"; do
   if [ -d "$DOTFILES/$pkg" ]; then
     echo "  stowing: $pkg"
-    stow --target="$HOME" --restow "$pkg" 2>&1 | grep -v "^$" || true
+    stow --target="$HOME" --restow "$pkg"
   else
-    echo "  skipping: $pkg (directory not found)"
+    echo "  skipping: $pkg (not found)"
   fi
 done
 
 echo ""
-echo "✓ Done! Reload your shell: exec zsh"
+echo "✓ Done! Reload your shell: exec \$SHELL"
