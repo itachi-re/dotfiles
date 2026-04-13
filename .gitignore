@@ -1,38 +1,91 @@
-# ~/.dotfiles/.gitignore
+# ── Secrets / credentials ──────────────────────────────────────────
+# GitHub CLI auth tokens
+gh/hosts.yml
+gh/config.yml
 
-# History files from various shells
-*history
-.zsh_history
-.bash_history
+# Shell history (NEVER commit)
+**/.bash_history
+**/.zsh_history
+**/zsh_history
+**/.histfile
 
-# Vim specific files
-*.swp
-*.swo
-.viminfo
+# SSH (should never be here, but just in case)
+**/.ssh/
+**/id_rsa*
+**/id_ed25519*
+**/*.pem
+**/*.key
 
-# Cache directories and files
-.cache/
-*.cache
+# GPG
+**/.gnupg/
 
-# Zsh specific
-.zcompdump*
+# Environment variable files
+**/.env
+**/.env.*
+**/.envrc
 
-# YaST logs from openSUSE
-.y2log*
+# API keys / tokens that might sneak into shell configs
+# (audit .zshrc/.bashrc manually for lines like: export API_KEY=...)
 
-# General development tool clutter
-.gradle/
-.java/
-.javacpp/
-.skiko/
-.dotnet/
-.subversion/
+# ── Sensitive app data ─────────────────────────────────────────────
+# Audacious scrobbler last.fm history
+audacious/.config/audacious/scrobbler.log
+audacious/.config/audacious/plugin-registry
 
-# OS-specific files (good practice to include)
-.DS_Store
-Thumbs.db
+# Audacious playlists (personal music paths, machine-specific)
+audacious/.config/audacious/playlists/
+audacious/.config/audacious/playlist-state
 
-# ignore local credentials
-misc/.lastfm_scrobbler
+# qBittorrent (if you add it later)
+**/qBittorrent/
 
-misc/.wget-hsts
+# Browser data (should never be here)
+**/BraveSoftware/
+**/chromium/
+**/google-chrome/
+
+# KDE Connect (device UUIDs, pairing keys)
+**/kdeconnect/
+
+# ── Machine-specific / generated files ────────────────────────────
+# Compiled/cached neovim
+nvim/.config/nvim/lazy-lock.json
+
+# Fastfetch cached data
+**/fastfetch/*.log
+
+# Pywal cache (generated from wallpaper, not portable)
+wal/.config/wal/cache/
+wal/.config/wal/colors*
+wal/.config/wal/sequences
+wal/.config/wal/wal
+
+# GTK icon cache
+**/.icon-theme.cache
+**/icon-theme.cache
+
+# Fontconfig cache
+fontconfig/.config/fontconfig/cache/
+
+# ── Logs & temp files ──────────────────────────────────────────────
+**/*.log
+**/*.tmp
+**/*.swp
+**/*.swo
+**/*~
+**/.DS_Store
+**/Thumbs.db
+
+# ── OpenRGB logs (system hardware info) ───────────────────────────
+**/OpenRGB/logs/
+
+# ── easyeffects (db has runtime state) ────────────────────────────
+easyeffects/.config/easyeffects/db/
+
+# ── Misc sensitive y2 installer leftovers ─────────────────────────
+misc/.y2usersettings
+
+# ── Backup files created during stow conflicts ────────────────────
+**/*.bak
+**/*.orig
+
