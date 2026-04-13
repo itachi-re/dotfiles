@@ -1,43 +1,193 @@
-# This is the configuration file for Ghostty.
-#
-# This template file has been automatically created at the following
-# path since Ghostty couldn't find any existing config files on your system:
-#
-#   /home/itachi/.config/ghostty/config
-#
-# The template does not set any default options, since Ghostty ships
-# with sensible defaults for all options. Users should only need to set
-# options that they want to change from the default.
-#
-# Run `ghostty +show-config --default --docs` to view a list of
-# all available config options and their default values.
-#
-# Additionally, each config option is also explained in detail
-# on Ghostty's website, at https://ghostty.org/docs/config.
+# ╔══════════════════════════════════════════════════════════════╗
+# ║       Ghostty Terminal — Enhanced Config                     ║
+# ║       Platform: openSUSE Tumbleweed · KDE Plasma             ║
+# ║       Place at: ~/.config/ghostty/config                     ║
+# ║                                                              ║
+# ║  All options verified against ghostty.org/docs/config and   ║
+# ║  manpages.opensuse.org/Tumbleweed/ghostty/ghostty.5          ║
+# ╚══════════════════════════════════════════════════════════════╝
 
-# Config syntax crash course
-# ==========================
-# # The config file consists of simple key-value pairs,
-# # separated by equals signs.
-# font-family = Iosevka
-# window-padding-x = 2
-#
-# # Spacing around the equals sign does not matter.
-# # All of these are identical:
-# key=value
-# key= value
-# key =value
-# key = value
-#
-# # Any line beginning with a # is a comment. It's not possible to put
-# # a comment after a config option, since it would be interpreted as a
-# # part of the value. For example, this will have a value of "#123abc":
-# background = #123abc
-#
-# # Empty values are used to reset config keys to default.
-# key =
-#
-# # Some config options have unique syntaxes for their value,
-# # which is explained in the docs for that config option.
-# # Just for example:
-# resize-overlay-duration = 4s 200ms
+
+# ── Font ──────────────────────────────────────────────────────────────────────
+
+# Install with: sudo zypper in jetbrains-mono-fonts
+# Or swap to any font listed by: ghostty +list-fonts
+font-family = JetBrains Mono
+font-size = 12
+
+# Ligatures — calt = contextual alternates (-> becomes arrow, etc.)
+# To disable: font-feature = -calt
+font-feature = calt
+font-feature = liga
+
+
+# ── Colors (Catppuccin Mocha — inlined, no theme file required) ───────────────
+
+background = #1e1e2e
+foreground = #cdd6f4
+
+# Selection colors
+selection-background = #585b70
+selection-foreground = #cdd6f4
+
+# Cursor color
+cursor-color = #f5e0dc
+
+# 16-color ANSI palette
+# black / bright black
+palette = 0=#45475a
+palette = 8=#585b70
+# red / bright red
+palette = 1=#f38ba8
+palette = 9=#f38ba8
+# green / bright green
+palette = 2=#a6e3a1
+palette = 10=#a6e3a1
+# yellow / bright yellow
+palette = 3=#f9e2af
+palette = 11=#f9e2af
+# blue / bright blue
+palette = 4=#89b4fa
+palette = 12=#89b4fa
+# magenta / bright magenta
+palette = 5=#f5c2e7
+palette = 13=#f5c2e7
+# cyan / bright cyan
+palette = 6=#94e2d5
+palette = 14=#94e2d5
+# white / bright white
+palette = 7=#bac2de
+palette = 15=#a6adc8
+
+
+# ── Cursor ────────────────────────────────────────────────────────────────────
+
+# Valid values: block, bar, underline
+cursor-style = block
+cursor-style-blink = true
+
+# Opacity: 0.0 (invisible) to 1.0 (fully opaque)
+cursor-opacity = 0.95
+
+
+# ── Window ────────────────────────────────────────────────────────────────────
+
+# Starting size in terminal cells (columns × rows)
+window-width  = 100
+window-height = 30
+
+# Padding inside the window in pixels
+window-padding-x = 12
+window-padding-y = 10
+
+# Balance extra padding evenly on all sides when cell grid doesn't divide evenly
+window-padding-balance = true
+
+# Show the native title bar. Set to false for a borderless look.
+window-decoration = true
+
+# New tabs/splits inherit the current working directory and font size
+window-inherit-working-directory = true
+window-inherit-font-size         = true
+
+# GTK: when to show the tab bar — always, never, or single-tab
+# Requires Ghostty 1.2.0+
+#window-show-tab-bar = always
+
+
+# ── Transparency (requires KWin compositor — active by default on Plasma) ─────
+
+# 0.0 = fully transparent, 1.0 = fully opaque
+background-opacity = 0.65
+
+# Gaussian blur radius (pixels) behind the transparent window. 0 = disabled.
+background-blur-radius = 25
+
+
+# ── Scrollback ────────────────────────────────────────────────────────────────
+
+# Buffer size in bytes. 10485760 = 10 MB.
+scrollback-limit = 10485760
+
+
+# ── Clipboard ─────────────────────────────────────────────────────────────────
+
+# Automatically copy selected text to the system clipboard
+# (clipboard = use the regular clipboard, not just primary selection)
+copy-on-select = clipboard
+
+# Warn before pasting content that contains suspicious escape sequences
+clipboard-paste-protection = true
+
+# Strip trailing whitespace when copying
+clipboard-trim-trailing-spaces = true
+
+
+# ── Bell ──────────────────────────────────────────────────────────────────────
+
+# Silence the audible bell.
+# Valid options: bell, no-bell, notify, audio (GTK)
+# Combine with commas e.g. bell-features = no-bell,notify
+#bell-features = no-bell
+
+
+# ── Shell & Term ──────────────────────────────────────────────────────────────
+
+# Default shell. Change to /bin/fish or /bin/bash if preferred.
+command = /bin/zsh
+
+# $TERM reported to child processes (use xterm-256color for broadest compat)
+term = xterm-256color
+
+
+# ── Safety ────────────────────────────────────────────────────────────────────
+
+# Ask for confirmation before closing a surface with a running process
+confirm-close-surface = true
+
+
+# ── Key Bindings ─────────────────────────────────────────────────────────────
+# Format:  keybind = <modifiers>+<key>=<action>
+# List all valid actions:  ghostty +list-actions
+# List all valid keys:     ghostty +list-keys
+
+# ── Tabs ──────────────────────────────────────────────────────────────────────
+keybind = ctrl+shift+t=new_tab
+keybind = ctrl+shift+w=close_surface
+keybind = ctrl+tab=next_tab
+keybind = ctrl+shift+tab=previous_tab
+keybind = ctrl+shift+1=goto_tab:1
+keybind = ctrl+shift+2=goto_tab:2
+keybind = ctrl+shift+3=goto_tab:3
+keybind = ctrl+shift+4=goto_tab:4
+keybind = ctrl+shift+5=goto_tab:5
+
+# ── Splits ────────────────────────────────────────────────────────────────────
+keybind = ctrl+shift+d=new_split:right
+keybind = ctrl+shift+minus=new_split:down
+keybind = ctrl+shift+h=goto_split:left
+keybind = ctrl+shift+l=goto_split:right
+keybind = ctrl+shift+k=goto_split:up
+keybind = ctrl+shift+j=goto_split:down
+keybind = ctrl+shift+equal=equalize_splits
+
+# ── Font size ─────────────────────────────────────────────────────────────────
+keybind = ctrl+equal=increase_font_size:1
+keybind = ctrl+minus=decrease_font_size:1
+keybind = ctrl+0=reset_font_size
+
+# ── Clipboard ─────────────────────────────────────────────────────────────────
+keybind = ctrl+shift+c=copy_to_clipboard
+keybind = ctrl+shift+v=paste_from_clipboard
+
+# ── Scrollback ────────────────────────────────────────────────────────────────
+keybind = shift+page_up=scroll_page_up
+keybind = shift+page_down=scroll_page_down
+keybind = ctrl+shift+home=scroll_to_top
+keybind = ctrl+shift+end=scroll_to_bottom
+
+# ── Windows & misc ────────────────────────────────────────────────────────────
+keybind = ctrl+shift+n=new_window
+keybind = ctrl+shift+f=toggle_fullscreen
+keybind = ctrl+shift+r=reload_config
+keybind = ctrl+shift+comma=open_config
