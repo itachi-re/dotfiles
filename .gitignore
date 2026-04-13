@@ -88,4 +88,4 @@ misc/.y2usersettings
 # ── Backup files created during stow conflicts ────────────────────
 **/*.bak
 **/*.orig
-
+**/.secrets
