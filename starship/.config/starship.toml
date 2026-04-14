@@ -1,0 +1,277 @@
+# ╔══════════════════════════════════════════════════════════════════════╗
+# ║        ~/.config/starship.toml — Itachi's Enhanced Prompt          ║
+# ║        Palette: Tokyo Night  |  Style: two-line powerline           ║
+# ╚══════════════════════════════════════════════════════════════════════╝
+
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline      = true
+command_timeout  = 800
+palette          = "tokyo_night"
+
+# ── Continuation prompt ───────────────────────────────────────────────
+continuation_prompt = '[∙](bright-black) '
+
+# ── Left Prompt Layout ────────────────────────────────────────────────
+# Line 1 — context (who, where, git, languages)
+# Line 2 — the input arrow
+format = """
+$os\
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_status\
+$git_state\
+$python\
+$nodejs\
+$rust\
+$golang\
+$java\
+$docker_context\
+$package\
+$cmd_duration\
+$jobs\
+$line_break\
+$status\
+$character"""
+
+# ── Right Prompt (zsh only) ───────────────────────────────────────────
+right_format = """$time"""
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# MODULES
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# ── OS glyph ─────────────────────────────────────────────────────────
+[os]
+disabled = false
+format   = "[$symbol]($style)"
+style    = "blue bold"
+
+[os.symbols]
+Linux   = "  "
+Ubuntu  = "  "
+Debian  = "  "
+Arch    = "  "
+Fedora  = "  "
+Macos   = "  "
+Windows = "  "
+Unknown = "  "
+
+# ── Username ──────────────────────────────────────────────────────────
+[username]
+show_always = true
+style_user  = "bold fg:yellow"
+style_root  = "bold fg:red"
+format      = "[ $user]($style)"
+
+# ── Hostname ──────────────────────────────────────────────────────────
+[hostname]
+ssh_only  = false
+style     = "fg:comment bold"
+format    = "[@$hostname]($style)[:]($style) "
+
+# ── Directory ─────────────────────────────────────────────────────────
+[directory]
+style              = "bold fg:blue"
+truncation_length  = 4
+truncation_symbol  = "…/"
+truncate_to_repo   = true
+format             = "[$path]($style)[$read_only]($read_only_style) "
+read_only          = " 󰌾"
+read_only_style    = "bold fg:red"
+
+[directory.substitutions]
+"Documents" = "󰈙 docs"
+"Downloads" = " dl"
+"Music"     = " music"
+"Pictures"  = " pics"
+".config"   = " cfg"
+"Projects"  = "󰲋 proj"
+"Desktop"   = " desk"
+"src"       = " src"
+
+# ── Git branch ────────────────────────────────────────────────────────
+[git_branch]
+symbol            = "🌱 "
+style             = "bold fg:purple"
+format            = "on [\\[$symbol$branch(:$remote_branch)\\]]($style) "
+truncation_length = 30
+truncation_symbol = "…"
+only_attached     = false
+always_show_remote = false
+
+# ── Git status ────────────────────────────────────────────────────────
+[git_status]
+style      = "bold fg:cyan"
+format     = "([$all_status$ahead_behind]($style) )"
+conflicted = "🏳 "
+ahead      = "⇡${count} "
+behind     = "⇣${count} "
+diverged   = "⇕⇡${ahead_count}⇣${behind_count} "
+up_to_date = ""
+untracked  = "🆕 ${count} "
+stashed    = "📦 "
+modified   = "📝 ${count} "
+staged     = "✅ ${count} "
+renamed    = "👅 ${count} "
+deleted    = "🗑 ${count} "
+
+# ── Git state (merge, rebase, cherry-pick…) ───────────────────────────
+[git_state]
+style          = "bold fg:red"
+format         = "\\([$state( $progress_current/$progress_total)]($style)\\) "
+rebase         = "REBASING"
+merge          = "MERGING"
+cherry_pick    = "🍒 CHERRY"
+bisect         = "BISECTING"
+am             = "AM"
+am_or_rebase   = "AM/REBASE"
+
+# ── Languages ─────────────────────────────────────────────────────────
+[python]
+style              = "bold fg:yellow"
+format             = "via [${symbol}${pyenv_prefix}(${version} )(\\($virtualenv\\) )]($style)"
+symbol             = " "
+detect_extensions  = ["py"]
+detect_files       = ["requirements.txt", "pyproject.toml", ".python-version", "Pipfile", "setup.py"]
+
+[nodejs]
+style         = "bold fg:green"
+format        = "via [$symbol($version )]($style)"
+symbol        = " "
+detect_files  = ["package.json", ".nvmrc", ".node-version"]
+
+[rust]
+style            = "bold fg:orange"
+format           = "via [$symbol($version )]($style)"
+symbol           = "󱘗 "
+detect_extensions = ["rs"]
+detect_files     = ["Cargo.toml"]
+
+[golang]
+style            = "bold fg:cyan"
+format           = "via [$symbol($version )]($style)"
+symbol           = " "
+detect_extensions = ["go"]
+detect_files     = ["go.mod", "go.sum"]
+
+[java]
+style            = "bold fg:red"
+format           = "via [$symbol($version )]($style)"
+symbol           = " "
+detect_extensions = ["java", "class", "jar", "gradle", "clj", "cljc"]
+detect_files     = ["pom.xml", "build.gradle.kts", "build.sbt"]
+
+[docker_context]
+symbol = " "
+style  = "bold fg:blue"
+format = "via [$symbol$context ]($style)"
+only_with_files = true
+detect_files    = ["docker-compose.yml", "docker-compose.yaml", "Dockerfile"]
+
+[package]
+style          = "bold fg:orange"
+format         = "via [󰏗 $version ]($style)"
+display_private = false
+
+# ── Command Duration ──────────────────────────────────────────────────
+[cmd_duration]
+style             = "bold fg:yellow"
+format            = "took [⏱ $duration ]($style)"
+min_time          = 2_000
+show_milliseconds = false
+show_notifications = false
+
+# ── Background Jobs ───────────────────────────────────────────────────
+[jobs]
+style          = "bold fg:blue"
+format         = "[$symbol$number ]($style)"
+symbol         = "⚙ "
+number_threshold = 1
+symbol_threshold = 1
+
+# ── Exit Status (shown on the second line, before the character) ──────
+[status]
+disabled       = false
+style          = "bold fg:red"
+format         = "[$symbol$status ]($style)"
+symbol         = "✖ "
+not_executable_symbol = "🚫 "
+not_found_symbol      = "🔍 "
+sigint_symbol         = "🧱 "
+signal_symbol         = "⚡ "
+success_symbol        = ""        # hidden on success — keep the line clean
+map_symbol     = true
+pipestatus     = false
+
+# ── Time (right-side prompt) ──────────────────────────────────────────
+[time]
+disabled    = false
+style       = "dimmed fg:comment"
+format      = "[$time]($style)"
+time_format = "%H:%M:%S"
+use_12hr    = false
+
+# ── Prompt Character ──────────────────────────────────────────────────
+[character]
+success_symbol = "[❯](bold fg:green)"
+error_symbol   = "[❯](bold fg:red)"
+vimcmd_symbol  = "[❮](bold fg:yellow)"
+vimcmd_replace_one_symbol = "[❮](bold fg:purple)"
+vimcmd_replace_symbol     = "[❮](bold fg:purple)"
+vimcmd_visual_symbol      = "[❮](bold fg:cyan)"
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# DISABLED / SILENT MODULES
+# (declare disabled explicitly so Starship doesn't probe them)
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[aws]
+disabled = true
+
+[gcloud]
+disabled = true
+
+[azure]
+disabled = true
+
+[kubernetes]
+disabled = true   # flip to false if you work with k8s regularly
+
+[terraform]
+disabled = false
+style    = "bold fg:purple"
+format   = "via [󱁢 $workspace ]($style)"
+
+[buf]
+disabled = true
+
+[vcsh]
+disabled = true
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# TOKYO NIGHT PALETTE
+# Inspired by tokyo-night.nvim — deep navy blues + neon accents
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[palettes.tokyo_night]
+# Core backgrounds / neutrals
+bg         = "#1a1b26"
+bg_dark    = "#16161e"
+bg_hl      = "#2a2b3d"
+comment    = "#565f89"
+fg         = "#c0caf5"
+fg_dark    = "#a9b1d6"
+
+# Vibrant accent colours
+red        = "#f7768e"
+orange     = "#ff9e64"
+yellow     = "#e0af68"
+green      = "#9ece6a"
+cyan       = "#73daca"
+blue       = "#7aa2f7"
+purple     = "#bb9af7"
+magenta    = "#c678dd"
+teal       = "#2ac3de"
+pink       = "#f278b5"
