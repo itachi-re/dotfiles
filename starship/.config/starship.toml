@@ -1,12 +1,13 @@
 # ╔══════════════════════════════════════════════════════════════════════╗
-# ║        ~/.config/starship.toml — Itachi's Enhanced Prompt          ║
-# ║        Palette: Tokyo Night  |  Style: two-line powerline           ║
+# ║        ~/.config/starship.toml — Itachi's Enhanced Prompt            ║
+# ║        Palette: Tokyo Night  |  Style: two-line powerline            ║
 # ╚══════════════════════════════════════════════════════════════════════╝
 
 "$schema" = 'https://starship.rs/config-schema.json'
 
 add_newline      = true
-command_timeout  = 800
+command_timeout  = 300
+scan_timeout     = 50
 palette          = "tokyo_night"
 
 # ── Continuation prompt ───────────────────────────────────────────────
@@ -30,14 +31,14 @@ $golang\
 $java\
 $docker_context\
 $package\
-$cmd_duration\
+$memory_usage\
 $jobs\
 $line_break\
 $status\
 $character"""
 
 # ── Right Prompt (zsh only) ───────────────────────────────────────────
-right_format = """$time"""
+right_format = """$time $cmd_duration"""
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # MODULES
@@ -70,17 +71,20 @@ format      = "[ $user]($style)"
 [hostname]
 ssh_only  = false
 style     = "fg:comment bold"
-format    = "[@$hostname]($style)[:]($style) "
+#format    = "[@$hostname]($style)[$ssh_symbol]($style)[:]($style) "
+format    = "[](comment)[@$hostname$ssh_symbol]($style)[](comment) "
+ssh_symbol = " 🌐"
 
 # ── Directory ─────────────────────────────────────────────────────────
 [directory]
-style              = "bold fg:blue"
+style              = "bg:blue fg:bg_dark bold"
 truncation_length  = 4
 truncation_symbol  = "…/"
 truncate_to_repo   = true
-format             = "[$path]($style)[$read_only]($read_only_style) "
+format             = "[](blue)[$path]($style)[](blue) "
 read_only          = " 󰌾"
 read_only_style    = "bold fg:red"
+fish_style_pwd_dir_length = 1
 
 [directory.substitutions]
 "Documents" = "󰈙 docs"
@@ -96,7 +100,7 @@ read_only_style    = "bold fg:red"
 [git_branch]
 symbol            = "🌱 "
 style             = "bold fg:purple"
-format            = "on [\\[$symbol$branch(:$remote_branch)\\]]($style) "
+format            = "[](purple)[$symbol$branch]($style)[](purple) "
 truncation_length = 30
 truncation_symbol = "…"
 only_attached     = false
@@ -128,6 +132,13 @@ cherry_pick    = "🍒 CHERRY"
 bisect         = "BISECTING"
 am             = "AM"
 am_or_rebase   = "AM/REBASE"
+
+# ── Shellvl ─────────────────────────────────────────────────────────
+[shlvl]
+disabled = false
+format = "[$symbol$shlvl ](bold fg:comment)"
+symbol = "↕ "
+threshold = 2
 
 # ── Languages ─────────────────────────────────────────────────────────
 [python]
@@ -176,6 +187,11 @@ style          = "bold fg:orange"
 format         = "via [󰏗 $version ]($style)"
 display_private = false
 
+# ── Dev Signals ─────────────────────────────────────────────────────────
+[direnv]
+disabled = false
+format = "[direnv ](bold fg:blue)"
+
 # ── Command Duration ──────────────────────────────────────────────────
 [cmd_duration]
 style             = "bold fg:yellow"
@@ -216,12 +232,12 @@ use_12hr    = false
 
 # ── Prompt Character ──────────────────────────────────────────────────
 [character]
-success_symbol = "[❯](bold fg:green)"
-error_symbol   = "[❯](bold fg:red)"
-vimcmd_symbol  = "[❮](bold fg:yellow)"
-vimcmd_replace_one_symbol = "[❮](bold fg:purple)"
-vimcmd_replace_symbol     = "[❮](bold fg:purple)"
-vimcmd_visual_symbol      = "[❮](bold fg:cyan)"
+success_symbol = "[~❯❯](bold fg:green)"
+error_symbol   = "[~❯❯](bold fg:red)"
+vimcmd_symbol  = "[❮~](bold fg:yellow)"
+vimcmd_replace_one_symbol = "[❮~](bold fg:purple)"
+vimcmd_replace_symbol     = "[❮~](bold fg:purple)"
+vimcmd_visual_symbol      = "[❮~](bold fg:cyan)"
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # DISABLED / SILENT MODULES
@@ -243,8 +259,8 @@ disabled = true   # flip to false if you work with k8s regularly
 [terraform]
 disabled = false
 style    = "bold fg:purple"
-format   = "via [󱁢 $workspace ]($style)"
-
+#format   = "via [󱁢 $workspace ]($style)"
+format   = "via [󱁢 $workspace($version) ]($style)"
 [buf]
 disabled = true
 
@@ -275,3 +291,13 @@ purple     = "#bb9af7"
 magenta    = "#c678dd"
 teal       = "#2ac3de"
 pink       = "#f278b5"
+
+# ── [memory_usage] ─────────────────────────────────────────────────────────
+
+[memory_usage]
+disabled   = false
+threshold  = 75
+format     = "RAM [$ram_pct ]($style)"
+style      = "bold fg:red"
+
+# ── [memory_usage] ─────────────────────────────────────────────────────────
