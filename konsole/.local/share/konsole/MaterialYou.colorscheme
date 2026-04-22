@@ -102,12 +102,11 @@ RandomSaturationRange=100
 
 [General]
 Anchor=0.5,0.5
-Blur=false
+Blur=true
 ColorRandomization=true
 Description=MaterialYou
 FillStyle=Adapt
-Opacity=1.0
+Opacity=0.2
 Wallpaper=/home/itachi/Pictures/Wallpapers/evangelion.png
 WallpaperFlipType=NoFlip
 WallpaperOpacity=0.2
-

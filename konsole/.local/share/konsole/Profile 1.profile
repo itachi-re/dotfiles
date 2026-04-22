@@ -13,10 +13,11 @@ Parent=FALLBACK/
 
 [Interaction Options]
 TrimLeadingSpacesInSelectedText=true
+UnderlineFilesEnabled=true
 
 [Scrolling]
 HistorySize=10000
 
 [Terminal Features]
+AnimatingCursorEnabled=true
 BlinkingCursorEnabled=false
-
