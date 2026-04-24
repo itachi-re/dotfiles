@@ -108,3 +108,5 @@ neovim/.config/nvim/db_ui/connections.json
 neovim/.config/nvim/gh_token
 zsh/.config/zsh/syntaxhighlighting
 zsh/.zcompdump
+# mpv cache
+mpv/.config/mpv/cache/
