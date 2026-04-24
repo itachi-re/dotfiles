@@ -110,3 +110,8 @@ zsh/.config/zsh/syntaxhighlighting
 zsh/.zcompdump
 # mpv cache
 mpv/.config/mpv/cache/
+
+# OBS junk
+obs/.config/obs-studio/logs/
+obs/.config/obs-studio/crashes/
+obs/.config/obs-studio/plugin_manager/
